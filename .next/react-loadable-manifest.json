@@ -1,0 +1,16 @@
+{
+  "app/certifications/page.tsx -> @/components/3d/LogoSphere": {
+    "id": "app/certifications/page.tsx -> @/components/3d/LogoSphere",
+    "files": [
+      "static/chunks/_app-pages-browser_components_3d_LogoSphere_tsx.js"
+    ]
+  },
+  "node_modules/@react-three/drei/core/VideoTexture.js -> hls.js": {
+    "id": "node_modules/@react-three/drei/core/VideoTexture.js -> hls.js",
+    "files": []
+  },
+  "node_modules/@react-three/drei/web/FaceLandmarker.js -> @mediapipe/tasks-vision": {
+    "id": "node_modules/@react-three/drei/web/FaceLandmarker.js -> @mediapipe/tasks-vision",
+    "files": []
+  }
+}

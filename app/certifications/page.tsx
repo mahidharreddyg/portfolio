@@ -1,9 +1,14 @@
+// app/certifications/page.tsx
 "use client"
 
 import { motion } from "framer-motion"
 import { Award, CheckCircle, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import PageHeader from "@/components/page-header"
+import dynamic from "next/dynamic"
+
+// Dynamic import for the LogoSphere component
+const LogoSphere = dynamic(() => import("@/components/3d/LogoSphere"), { ssr: false })
 
 export default function CertificationsPage() {
   const certifications = [
@@ -15,7 +20,7 @@ export default function CertificationsPage() {
       credentialId: "AWS-CP-12345",
       description: "Foundational understanding of AWS Cloud services, security, architecture, pricing, and support.",
       skills: ["Cloud Computing", "AWS Services", "Cloud Security", "Cloud Architecture"],
-      icon: "/placeholder.svg?height=100&width=100&text=AWS",
+      icon: "/logos/aws.glb",  // Make sure the path starts from `/public`
     },
     {
       title: "Google UX Design Professional Certificate",
@@ -25,7 +30,7 @@ export default function CertificationsPage() {
       description:
         "Comprehensive training in UX design principles, research methods, wireframing, prototyping, and usability testing.",
       skills: ["UX Research", "Wireframing", "Prototyping", "Usability Testing", "Figma"],
-      icon: "/placeholder.svg?height=100&width=100&text=Google",
+      icon: "/logos/google.glb",  // Make sure the path starts from `/public`
     },
     {
       title: "React Developer Certificate",
@@ -35,7 +40,7 @@ export default function CertificationsPage() {
       description:
         "Advanced React development including hooks, context API, Redux, and performance optimization techniques.",
       skills: ["React.js", "Redux", "JavaScript", "Frontend Development", "UI Components"],
-      icon: "/placeholder.svg?height=100&width=100&text=Meta",
+      icon: "/logos/aws.glb",  // Placeholder until you have the actual React logo
     },
     {
       title: "Machine Learning Specialization",
@@ -45,9 +50,10 @@ export default function CertificationsPage() {
       description:
         "Comprehensive course covering machine learning algorithms, neural networks, and practical applications.",
       skills: ["Machine Learning", "Neural Networks", "Python", "Data Analysis", "TensorFlow"],
-      icon: "/placeholder.svg?height=100&width=100&text=Stanford",
+      icon: "/logos/google.glb",  // Placeholder until you have the actual ML logo
     },
   ]
+  
 
   return (
     <div className="min-h-screen pt-24 pb-16">
@@ -65,12 +71,8 @@ export default function CertificationsPage() {
               className="bg-card/50 backdrop-blur-lg rounded-3xl p-8 border border-border shadow-lg"
             >
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden bg-white p-2">
-                  <img
-                    src={cert.icon || "/placeholder.svg"}
-                    alt={cert.organization}
-                    className="w-full h-full object-contain"
-                  />
+                <div className="flex-shrink-0">
+                  <LogoSphere textureUrl={cert.icon} scale={1.5} />
                 </div>
 
                 <div>
