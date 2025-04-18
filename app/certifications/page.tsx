@@ -1,4 +1,3 @@
-// app/certifications/page.tsx
 "use client"
 
 import { motion } from "framer-motion"
@@ -20,7 +19,9 @@ export default function CertificationsPage() {
       credentialId: "AWS-CP-12345",
       description: "Foundational understanding of AWS Cloud services, security, architecture, pricing, and support.",
       skills: ["Cloud Computing", "AWS Services", "Cloud Security", "Cloud Architecture"],
-      icon: "/logos/aws.glb",  // Make sure the path starts from `/public`
+      icon: "/logos/aws.glb",  // Path to AWS logo
+      scale: 0.25,  // Adjust the scale for AWS logo
+      positionY: -1,
     },
     {
       title: "Google UX Design Professional Certificate",
@@ -30,17 +31,8 @@ export default function CertificationsPage() {
       description:
         "Comprehensive training in UX design principles, research methods, wireframing, prototyping, and usability testing.",
       skills: ["UX Research", "Wireframing", "Prototyping", "Usability Testing", "Figma"],
-      icon: "/logos/google.glb",  // Make sure the path starts from `/public`
-    },
-    {
-      title: "React Developer Certificate",
-      organization: "Meta",
-      date: "2022",
-      credentialId: "META-REACT-54321",
-      description:
-        "Advanced React development including hooks, context API, Redux, and performance optimization techniques.",
-      skills: ["React.js", "Redux", "JavaScript", "Frontend Development", "UI Components"],
-      icon: "/logos/aws.glb",  // Placeholder until you have the actual React logo
+      icon: "/logos/google.glb",  // Path to Google logo
+      scale: 1.5,  // Adjust the scale for Google logo
     },
     {
       title: "Machine Learning Specialization",
@@ -50,10 +42,10 @@ export default function CertificationsPage() {
       description:
         "Comprehensive course covering machine learning algorithms, neural networks, and practical applications.",
       skills: ["Machine Learning", "Neural Networks", "Python", "Data Analysis", "TensorFlow"],
-      icon: "/logos/google.glb",  // Placeholder until you have the actual ML logo
+      icon: "/logos/google.glb",  // Placeholder for ML logo (using Google logo for now)
+      scale: 1.4,  // Adjust the scale for the ML logo
     },
   ]
-  
 
   return (
     <div className="min-h-screen pt-24 pb-16">
@@ -72,7 +64,7 @@ export default function CertificationsPage() {
             >
               <div className="flex items-start gap-4 mb-6">
                 <div className="flex-shrink-0">
-                  <LogoSphere textureUrl={cert.icon} scale={1.5} />
+                  <LogoSphere modelUrl={cert.icon} scale={cert.scale} />  {/* Use scale from the certifications data */}
                 </div>
 
                 <div>
